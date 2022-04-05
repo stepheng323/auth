@@ -28,7 +28,7 @@ app.use(cors(corsOptions));
 app.use(morgan('dev'));
 
 app.use(apiRouter);
-app.get('/', (req, res) => respondWithSuccess(res, 200, 'Welcome to Moni Track', {}));
+app.get('/', (req, res) => respondWithSuccess(res, 200, 'Welcome to auth test', {}));
 
 interface Error {
   status?: number;
