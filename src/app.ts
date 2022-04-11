@@ -51,9 +51,7 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
     console.log(error);
-    // this is a capricorn error message for when account need to be funded
-    if (error.message.startsWith('Cannot complete exchange.')) return respondWithWarning(res, 500, 'Unable to process, please try again', null);
-    respondWithWarning(res, error.status || 500, 'something bad happened, please try again', null);
+    respondWithWarning(res, error.status || 500, 'something bad happened, please try again', error.message);
   });
 }
 
