@@ -12,4 +12,6 @@ const auth = Router();
 auth.post('/signup', validateSignup, signup);
 auth.post('/login', validateLogin, login);
 
+
+
 export default auth;
