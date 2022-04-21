@@ -92,6 +92,7 @@ export const validateUpgradeAccount = async (req: Request, res: Response, next: 
 };
 
 export const validateSignup = async (req: Request, res: Response, next: NextFunction) => {
+  console.log('validattion', req.body);
   const schema = Joi.object({
     firstName: Joi.string().required(),
     lastName: Joi.string().required(),
