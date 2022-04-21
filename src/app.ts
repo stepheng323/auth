@@ -8,23 +8,24 @@ import { respondWithSuccess, respondWithWarning } from './helpers/respondHandler
 
 const app = express();
 
-const whitelist = [
-  'http://localhost:4000',
-];
-const corsOptions = {
-  origin(origin, callback) {
-    if (!origin || whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error(`${origin} Not allowed by CORS`));
-    }
-  },
-  credentials: true,
-};
+// const whitelist = [
+//   'http://localhost:4000',
+// ];
+// const corsOptions = {
+//   origin(origin, callback) {
+//     if (!origin || whitelist.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error(`${origin} Not allowed by CORS`));
+//     }
+//   },
+//   credentials: true,
+// };
+app.use(cors())
 app.use(helmet());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: false }));
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 app.use(morgan('dev'));
 
 app.use(apiRouter);
