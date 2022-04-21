@@ -16,6 +16,8 @@ export const validateVerifyOtp = async (req: Request, res: Response, next: NextF
 };
 
 export const validateLogin = async (req: Request, res: Response, next: NextFunction) => {
+  console.log('validattion', req.body);
+
   const schema = Joi.object({
     email: Joi.string().email().required(),
     password: Joi.string().required(),
